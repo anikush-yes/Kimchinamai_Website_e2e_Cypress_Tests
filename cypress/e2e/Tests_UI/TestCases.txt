@@ -1,0 +1,203 @@
+
+1. Navigation Menu
+
+Test Scenario 1: Navigating Between Pages
+
+Steps:
+
+1.1 Open the homepage. Verify that home page is visible successfully.
+1.2. Click on each menu item: Pagrindinis, Parduotuvė, Tinklaraštis, Kontaktai.
+1.3. Verify that the correct page loads.
+
+• Expected Result: Each menu item redirects to the correct page.
+
+________________________________________________________________________________________________________________________________
+
+
+2. Product Categories
+
+Test Scenario 2: Viewing Product Categories
+
+Steps:
+
+2.1 Open the homepage. Verify that home page is visible successfully:
+2.2 Go to Parduotuvė. Verify that the correct page loads.
+2.3 Click on each category (Kimchi, Rinkiniai, Probiotinės sultys, Fermentuoti padažai, Kita).
+2.4 Verify that only relevant products are displayed.
+
+• Expected Result: The selected category displays the correct products.
+
+_______________________________________________________________________________________________________________________________
+
+
+3. Product Listings
+
+Test Scenario 3: Checking Product Details
+
+Steps:
+
+3.1 Select a product from the list.
+3.2 Verify the product name, price, and description are correct.
+
+• Expected Result: Product details match expected values.
+
+______________________________________________________________________________________________________________________________
+
+
+4. Shopping Cart
+
+Test Scenario 4: Adding a Product to the Cart
+
+Steps:
+
+4.1 Click Į krepšelį on a product.
+4.2 Open the Krepšelis page.
+4.3 Verify that the selected product appears in the cart.
+
+• Expected Result: The selected product appears in the cart.
+
+_________________________________________________________________________________________________________________________________
+
+
+Test Scenario 5: Removing a Product from the Cart
+
+Steps:
+
+5.1 Add a product to the cart.
+5.2 Click the remove (X) button.
+5.3 Verify that the cart is empty.
+
+• Expected Result: The product is removed from the cart.
+
+________________________________________________________________________________________________________________________________
+
+Test Scenario 6: Updating Product Quantity
+
+Steps:
+
+6.1 Add a product to the cart.
+6.2 Change the quantity using the quantity selector.
+6.3 Verify the price updates accordingly.
+
+• Expected Result: The price updates based on the new quantity.
+
+________________________________________________________________________________________________________________________________
+
+
+5. User Account
+
+Test Scenario 7: User Registration
+
+Steps:
+
+7.1 Click Prisijungti → Registruotis.
+7.2 Fill in valid details.
+7.3 Submit the form.
+7.4 Verify that the user is registered.
+
+• Expected Result: A new user account is created.
+
+________________________________________________________________________________________________________________________________
+
+
+Test Scenario 8: User Login
+
+Steps:
+
+8.1 Click Prisijungti.
+8.2 Enter valid login credentials.
+8.3 Submit the form.
+8.4 Verify successful login.
+
+• Expected Result: The user logs in successfully.
+
+________________________________________________________________________________________________________________________________
+
+Test Scenario 9: Incorrect Login
+
+Steps:
+
+9.1 Enter incorrect login credentials.
+9.2 Submit the form.
+
+• Expected Result: The system displays an error message.
+
+________________________________________________________________________________________________________________________________
+
+
+6. Search Function
+
+Test Scenario 10: Searching for a Product
+
+Steps:
+
+10.1 Use the Prekių paieška bar.
+10.2 Enter a valid product name.
+10.3 Verify the search results.
+
+• Expected Result: Relevant products appear.
+
+________________________________________________________________________________________________________________________________
+
+
+Test Scenario 11: Searching for a Non-Existent Product
+
+Steps:
+
+11.1 Enter a non-existing product name.
+11.2 Check if a "No results found" message appears.
+
+• Expected Result: The system correctly informs the user that the product is unavailable.
+
+________________________________________________________________________________________________________________________________
+
+7. Blog
+
+Test Scenario 12: Viewing a Blog Post
+
+Steps:
+
+12.1 Open Tinklaraštis.
+12.2 Click on a blog post.
+12.3 Verify that the post content appears correctly.
+
+• Expected Result: The selected blog post loads with the correct content.
+
+________________________________________________________________________________________________________________________________
+
+
+8. Contact Form
+
+Test Scenario 13: Submitting a Contact Form
+
+Steps:
+
+13.1 Open the Kontaktai page.
+13.2 Fill in the contact form with valid details.
+13.3 Submit the form.
+
+• Expected Result: The form is submitted successfully, and a confirmation message appears.
+
+________________________________________________________________________________________________________________________________
+
+Test Scenario 14: Submitting an Empty Contact Form
+
+Steps:
+
+14.1 Leave all fields blank.
+14.2 Click submit.
+
+• Expected Result: The system displays validation errors.
+
+________________________________________________________________________________________________________________________________
+
+9. Footer Links
+
+Test Scenario 15: Checking Footer Links
+
+Steps:
+
+15.1 Click on each footer link (Privatumo politika, Sąlygos ir taisyklės, Prekių pristatymas, DUK).
+15.2 Verify that the correct page loads.
+
+• Expected Result: Each footer link directs to the expected page.
