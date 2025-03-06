@@ -1,3 +1,5 @@
+Test's scenario for the website https://kimchinamai.lt
+
 
 1. Navigation Menu
 

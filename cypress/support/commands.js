@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('launchBrowser', () => {
+
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        console.log('Ignoring uncaught exception:', err.message);
+        return false;
+    });
+
+    cy.visit('https://kimchinamai.lt/', {
+        onBeforeLoad(win) {
+            win.XMLHttpRequest = null;
+        }
+    });
+    cy.url().should('eq', 'https://kimchinamai.lt/');
+
+    
+});
