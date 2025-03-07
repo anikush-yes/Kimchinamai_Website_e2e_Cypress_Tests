@@ -3,7 +3,7 @@ Functionality of the website https://kimchinamai.lt
 
 1. Navigation Menu: 
 
-Provides access to different sections like "Pagrindinis" (Home), "Parduotuvė" (Store), "Tinklaraštis" (Blog), and "Kontaktai" (Contact).
+Provides access to different sections like "Pagrindinis" (Home), "Parduotuvė" (Store) - contains dropdown menu with product selection, "Tinklaraštis" (Blog), and "Kontaktai" (Contact).
 
 2. Product Categories: 
 

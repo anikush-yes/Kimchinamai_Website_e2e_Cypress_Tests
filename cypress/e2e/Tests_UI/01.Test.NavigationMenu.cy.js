@@ -45,5 +45,14 @@ cy.get('.elementor-element-2fbda9c.elementor-sticky--active > :nth-child(1) > :n
 cy.url().should('eq', 'https://kimchinamai.lt/susisiekite-su-mumis');
 cy.contains('SUSISIEKITE SU MUMIS').should('be.visible');
 
+
+cy.get('.pk-nav-link').contains('PARDUOTUVĖ')  // Locate the "PARDUOTUVĖ" link
+  .trigger('mouseover', { force: true });        // Hover over it (using force in case it’s hidden)
+
+cy.wait(500);                                    // Wait 500ms to allow the dropdown to appear
+
+cy.get('.pk-nav-li.pk-align-auto.pk-dropdown-open') // Correct selector for the dropdown element
+  .should('be.visible');
+
 });
 });
