@@ -9,7 +9,8 @@ describe('Product Categories Page', () => {
         cy.launchBrowser();
 
         //2.3-2.4
-
+        
+//NEVEIKIA!!!!
 
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')

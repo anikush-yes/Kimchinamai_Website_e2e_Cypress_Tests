@@ -54,8 +54,8 @@ Test Scenario 4: Adding a Product to the Cart
 
 Steps:
 
-4.1 Click Į krepšelį on a product.
-4.2 Open the Krepšelis page.
+4.1 Click Į krepšelį (Сart) on a product.
+4.2 Open the Krepšelis (Cart) page.
 4.3 Verify that the selected product appears in the cart.
 
 • Expected Result: The selected product appears in the cart.
