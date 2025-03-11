@@ -99,11 +99,14 @@ ________________________________________________________________________________
 Test Scenario 7: User Registration
 
 Steps:
-
-7.1 Click Prisijungti → Registruotis.
-7.2 Fill in valid details.
-7.3 Submit the form.
-7.4 Verify that the user is registered.
+7.1 Open the homepage. Verify that home page is visible successfully.
+7.2 Click Prisijungti (Login)/ Registruotis (Register) Icon.
+7.3 Verify that the correct page loaded.
+7.4 Click Create account (Sukurti paskyrą)
+7.5 Fill in valid details.
+7.6 Fill in checkboxes
+7.7 Submit the form.
+7.8 Verify that the user is registered.
 
 • Expected Result: A new user account is created.
 
@@ -113,11 +116,12 @@ ________________________________________________________________________________
 Test Scenario 8: User Login
 
 Steps:
-
-8.1 Click Prisijungti.
-8.2 Enter valid login credentials.
-8.3 Submit the form.
-8.4 Verify successful login.
+8.1 Open the homepage. Verify that home page is visible successfully.
+8.2 Click Prisijungti (Login)/ Registruotis (Register) Icon.
+8.3 Verify that the correct page loaded.
+8.4 Enter valid login credentials.
+8.5 Submit the form.
+8.6 Verify successful login.
 
 • Expected Result: The user logs in successfully.
 
@@ -126,9 +130,11 @@ ________________________________________________________________________________
 Test Scenario 9: Incorrect Login
 
 Steps:
-
-9.1 Enter incorrect login credentials.
-9.2 Submit the form.
+9.1 Open the homepage. Verify that home page is visible successfully.
+9.2 Click Prisijungti (Login)/ Registruotis (Register) Icon.
+9.3 Verify that the correct page loaded.
+9.4 Enter incorrect login credentials.
+9.5 Submit the form.
 
 • Expected Result: The system displays an error message.
 
@@ -141,9 +147,11 @@ Test Scenario 10: Searching for a Product
 
 Steps:
 
-10.1 Use the Prekių paieška bar.
-10.2 Enter a valid product name.
-10.3 Verify the search results.
+10.1 Open the homepage. Verify that home page is visible successfully.
+10.2 Click the Prekių paieška (Search) icon.
+10.3 Verify that the search bar is visible after clicking the icon.
+10.4 Enter a valid product name.
+10.5 Verify the search results.
 
 • Expected Result: Relevant products appear.
 
