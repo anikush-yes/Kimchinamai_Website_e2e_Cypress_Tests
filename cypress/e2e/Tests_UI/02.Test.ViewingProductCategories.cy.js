@@ -4,30 +4,26 @@ describe('Product Categories Page', () => {
 
     it('Should check each category and verify relevant products', () => {
 
-        //2.1-2.2
-
+        
         cy.launchBrowser();
     
-        // NEVEIKIA!!!!
-
+        
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
-            .should('exist')
-            .invoke('show')
+            .should('not.have.css', 'display', 'none') 
             .trigger('mouseover', { force: true });
-
+           
         cy.get('a[href="https://kimchinamai.lt/10-parduotuve#kimchi"]')
             .contains('KIMCHI')
             .click({ force: true });
         cy.wait(1000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#kimchi');
-
-
-
+        
+        ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Čia lužta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
-            .should('exist')
-            .invoke('show')
+            .should('not.have.css', 'display', 'none')
             .trigger('mouseover', { force: true });
 
         cy.get('a[href="https://kimchinamai.lt/10-parduotuve#rinkiniai"]')
@@ -36,12 +32,9 @@ describe('Product Categories Page', () => {
         cy.wait(5000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#rinkiniai');
 
-
-
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
-            .should('exist')
-            .invoke('show')
+            .should('not.have.css', 'display', 'none')
             .trigger('mouseover', { force: true });
 
         cy.wait(4000);
@@ -51,12 +44,9 @@ describe('Product Categories Page', () => {
         cy.wait(4000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#sultys');
 
-
-
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
-            .should('exist')
-            .invoke('show')
+            .should('not.have.css', 'display', 'none')
             .trigger('mouseover', { force: true });
 
         cy.get('a[href="https://kimchinamai.lt/10-parduotuve#padazai"]')
@@ -65,14 +55,10 @@ describe('Product Categories Page', () => {
         cy.wait(4000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#padazai');
 
-
-
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
-            .should('exist')
-            .invoke('show')
+            .should('not.have.css', 'display', 'none')
             .trigger('mouseover', { force: true });
-
 
         cy.get('a[href="https://kimchinamai.lt/10-parduotuve#kita"]')
             .contains('KITA')
@@ -82,7 +68,6 @@ describe('Product Categories Page', () => {
 
     });
 });
-
  
 //<a href="https://kimchinamai.lt/10-parduotuve#kimchi">KIMCHI</a>
 //<a href="https://kimchinamai.lt/10-parduotuve#rinkiniai">RINKINIAI</a>

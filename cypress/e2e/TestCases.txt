@@ -161,18 +161,20 @@ ________________________________________________________________________________
 Test Scenario 11: Searching for a Non-Existent Product
 
 Steps:
-
-11.1 Enter a non-existing product name.
-11.2 Check if a "No results found" message appears.
+11.1 Open the homepage. Verify that home page is visible successfully.
+11.2 Click the Prekių paieška (Search) icon.
+11.3 Verify that the search bar is visible after clicking the icon.
+11.4 Enter a non-existing product name.
+11.5 Check if a "No results found" message appears.
 
 • Expected Result: The system correctly informs the user that the product is unavailable.
 
 ________________________________________________________________________________________________________________________________
 
-7. Blog
+7. Blog (Tinklaraštis)
 
 Test Scenario 12: Viewing a Blog Post
-
+!!! Bug detected as Tinklaraštis page is equal Homepage, not performing the test
 Steps:
 
 12.1 Open Tinklaraštis.
@@ -189,10 +191,13 @@ ________________________________________________________________________________
 Test Scenario 13: Submitting a Contact Form
 
 Steps:
+13.1 Open the homepage and verify that it loads successfully.
+13.2 Click on the "Kontaktai" (Contact) link in the navigation menu.
+13.3 Verify that the contact page loads correctly.
+13.4 Fill in the contact form with valid details (e.g., name, email, message).
+13.5 Submit the form.
+13.6 Verify that a confirmation message appears after submission.
 
-13.1 Open the Kontaktai page.
-13.2 Fill in the contact form with valid details.
-13.3 Submit the form.
 
 • Expected Result: The form is submitted successfully, and a confirmation message appears.
 
@@ -201,9 +206,12 @@ ________________________________________________________________________________
 Test Scenario 14: Submitting an Empty Contact Form
 
 Steps:
-
-14.1 Leave all fields blank.
-14.2 Click submit.
+14.1 Open the homepage and verify that it loads successfully.
+14.2 Click on the "Kontaktai" (Contact) link in the navigation menu.
+14.3 Verify that the contact page loads correctly.
+14.4 Leave all fields blank.
+14.5 Click submit.
+14.6 Verify the error message appears after submission.
 
 • Expected Result: The system displays validation errors.
 
@@ -215,7 +223,7 @@ Test Scenario 15: Checking Footer Links
 
 Steps:
 
-15.1 Click on each footer link (Privatumo politika, Sąlygos ir taisyklės, Prekių pristatymas, DUK).
+15.1 Click on each footer link (Pagrindinis, Kontaktai, Privatumo politika, Mano paskyra, Sąlygos ir taisyklės, Prekių pristatymas, DUK).
 15.2 Verify that the correct page loads.
 
 • Expected Result: Each footer link directs to the expected page.
