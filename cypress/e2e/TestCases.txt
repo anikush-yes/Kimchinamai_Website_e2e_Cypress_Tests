@@ -8,12 +8,11 @@ Test Scenario 1: Navigating Between Pages
 Steps:
 
 1.1 Open the homepage. Verify that home page is visible successfully.
-1.2. "Pagrindinis" (Home), "Parduotuvė" (Store), "Tinklaraštis" (Blog), and "Kontaktai" (Contact).
-1.3. Verify that the correct page loads.
+1.2 Check every nav. menu section: "Pagrindinis" (Home), "Parduotuvė" (Store), "Tinklaraštis" (Blog), and "Kontaktai" (Contact).
+1.3 Verify that the correct page loads.
 
 • Expected Result: Each menu item redirects to the correct page.
 
-1.4. 
 
 ________________________________________________________________________________________________________________________________
 
@@ -26,7 +25,7 @@ Steps:
 
 2.1 Open the homepage. Verify that home page is visible successfully:
 2.2 Go to Parduotuvė. Verify that the correct page loads.
-2.3 Click on each category (Kimchi, Rinkiniai, Probiotinės sultys, Fermentuoti padažai, Kita).
+2.3 Click on each category pfrom drop down "Parduotuvė" (Kimchi, Rinkiniai, Probiotinės sultys, Fermentuoti padažai, Kita).
 2.4 Verify that only relevant products are displayed.
 
 • Expected Result: The selected category displays the correct products.
@@ -39,9 +38,11 @@ ________________________________________________________________________________
 Test Scenario 3: Checking Product Details
 
 Steps:
+3.1 Open the homepage. Verify that home page is visible successfully.
+3.2 Go to Parduotuvė. Verify that the correct page loads.
+3.3 Select a product from the list, click on the title (Tradicinis kimchi su jūros gėrybėmis)
+3.4 Verify the product name, price, description,"Į krepšelį"(Add to Cart) button, additional description "Aprašymas" "Prekių pristatymas" (Delivery) are correct.
 
-3.1 Select a product from the list.
-3.2 Verify the product name, price, and description are correct.
 
 • Expected Result: Product details match expected values.
 
@@ -53,10 +54,11 @@ ________________________________________________________________________________
 Test Scenario 4: Adding a Product to the Cart
 
 Steps:
-
-4.1 Click Į krepšelį (Сart) on a product.
-4.2 Open the Krepšelis (Cart) page.
-4.3 Verify that the selected product appears in the cart.
+4.1 Open the homepage. Verify that home page is visible successfully.
+4.2 Go to Parduotuvė. Verify that the correct page loads.
+4.3 Click Į krepšelį (Сart) on a product.
+4.4 Open the Krepšelis (Cart) page by clicking on modal window.
+4.5 Verify that the selected product appears in the cart.
 
 • Expected Result: The selected product appears in the cart.
 
@@ -66,10 +68,12 @@ ________________________________________________________________________________
 Test Scenario 5: Removing a Product from the Cart
 
 Steps:
-
-5.1 Add a product to the cart.
-5.2 Click the remove (X) button.
-5.3 Verify that the cart is empty.
+5.1 Open the homepage. Verify that home page is visible successfully.
+5.2 Go to Parduotuvė. Verify that the correct page loads.
+5.3 Add multiple products in the Cart "Į krepšelį"
+5.4 Open the Krepšelis (Cart)
+5.5 Click the remove (X) button.
+5.6 Verify that the cart is empty.
 
 • Expected Result: The product is removed from the cart.
 
@@ -78,10 +82,12 @@ ________________________________________________________________________________
 Test Scenario 6: Updating Product Quantity
 
 Steps:
-
-6.1 Add a product to the cart.
-6.2 Change the quantity using the quantity selector.
-6.3 Verify the price updates accordingly.
+6.1 Open the homepage. Verify that home page is visible successfully.
+6.2 Go to Parduotuvė. Verify that the correct page loads.
+6.3 Add a product to the cart.
+6.4 Visit Cart
+6.5 Change the quantity using the quantity selector.
+6.6 Verify the price updates accordingly.
 
 • Expected Result: The price updates based on the new quantity.
 

@@ -3,28 +3,33 @@
 describe('Shopping Cart', () => {
 
     it('Should add a product to the cart and verify it', () => {
+      
+//4.1-4.2
 
 cy.launchBrowser();
 
 cy.get('.pk-nav-link').contains('PARDUOTUVĖ').click({ force: true });
 cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve');
 
-//04.1 Click Į krepšelį on a product.
+//4.3 Click Į krepšelį on a product.
 
-cy.get('a[href="#ce-action=addToCart"]')  // Pasirinkite mygtuką pagal href atributą
-  .should('be.visible')  // Patikrina, ar mygtukas matomas
-  .first()
-  .click({ force: true });
-
-  //4.2 Open the Krepšelis page on the modal 
-  cy.clearCookies();
-  cy.clearLocalStorage();
-  cy.reload();
+cy.get('a[href="#ce-action=addToCart"]') 
+      .should('be.visible') 
+      .each(($el, index, $list) => { 
+        cy.wrap($el).click({ force: true }); 
+        cy.wait(500); 
+      });
   
-//NEVEIKIA, ATIDARO TUSCIA KREPSELI NORS PRODUKTAS BUVO IDETAS
+///4.4 Open the Krepšelis (Cart)
 
   cy.get('.elementor-button--view-cart').eq(0).click({ force: true });
   cy.wait(500);
+
+///4.5 Verify that the selected product appears in the cart.
+
+  cy.get('ul.cart-items')  
+  .find('li.cart-item')   
+  .should('have.length.greaterThan', 0);
 
 });
 });

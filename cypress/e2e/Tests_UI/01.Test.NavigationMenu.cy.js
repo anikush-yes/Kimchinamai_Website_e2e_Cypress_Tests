@@ -6,19 +6,9 @@ describe('Verifies that the navigation menu functions correctly by ensuring each
 
         //1.1
 
-        Cypress.on('uncaught:exception', (err, runnable) => {
-            console.log('Ignoring uncaught exception:', err.message);
-            return false;
-        });
+        cy.launchBrowser();
 
-        cy.visit('https://kimchinamai.lt/', {
-            onBeforeLoad(win) {
-                win.XMLHttpRequest = null;
-            }
-        });
-        cy.url().should('eq', 'https://kimchinamai.lt/');
-
-        //1.2
+        //1.2-1.3
 
 // PAGRINDINIS (Main page link)
 cy.get('.pk-nav-link').contains('PAGRINDINIS').click({ force: true });
@@ -39,7 +29,6 @@ cy.reload();
 
 // KONTAKTAI (Contacts page link) - using `cy.get()` for `.pk-nav-link`
 cy.get('.elementor-element-2fbda9c.elementor-sticky--active > :nth-child(1) > :nth-child(1) > .elementor-element-326c126 > :nth-child(1) > :nth-child(1) > .elementor-element-00ee875 > :nth-child(1) > .pk-ce-widget-wrapper > .pk-ce-widget > .pk-nav > .pk-nav-ul > :nth-child(4) > .flex-container > .pk-nav-link').click({ force: true });
-
 
 // Verifying the contact page URL
 cy.url().should('eq', 'https://kimchinamai.lt/susisiekite-su-mumis');

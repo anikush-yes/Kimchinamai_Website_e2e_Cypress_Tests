@@ -7,10 +7,8 @@ describe('Product Categories Page', () => {
         //2.1-2.2
 
         cy.launchBrowser();
-
-        //2.3-2.4
-        
-//NEVEIKIA!!!!
+    
+        // NEVEIKIA!!!!
 
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
@@ -24,18 +22,21 @@ describe('Product Categories Page', () => {
         cy.wait(1000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#kimchi');
 
+
+
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
             .should('exist')
             .invoke('show')
             .trigger('mouseover', { force: true });
 
-
         cy.get('a[href="https://kimchinamai.lt/10-parduotuve#rinkiniai"]')
             .contains('RINKINIAI')
             .click({ force: true });
         cy.wait(5000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#rinkiniai');
+
+
 
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
@@ -51,18 +52,20 @@ describe('Product Categories Page', () => {
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#sultys');
 
 
+
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
             .should('exist')
             .invoke('show')
             .trigger('mouseover', { force: true });
 
-
         cy.get('a[href="https://kimchinamai.lt/10-parduotuve#padazai"]')
             .contains('FERMENTUOTI PADAŽAI')
             .click({ force: true });
         cy.wait(4000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#padazai');
+
+
 
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')
@@ -80,6 +83,7 @@ describe('Product Categories Page', () => {
     });
 });
 
+ 
 //<a href="https://kimchinamai.lt/10-parduotuve#kimchi">KIMCHI</a>
 //<a href="https://kimchinamai.lt/10-parduotuve#rinkiniai">RINKINIAI</a>
 //<a href="https://kimchinamai.lt/10-parduotuve#sultys">PROBIOTINĖS SULTYS</a>

@@ -11,7 +11,7 @@ Under "Parduotuvė", products are organized into categories such as "Kimchi", "R
 
 3. Product Listings: 
 
-Each category showcases products with details like name, price, description, and an "Į krepšelį" (Add to Cart) button.
+Each category showcases products with details like name, price, description, and "Į krepšelį"(Add to Cart) button, "Prekių pristatymas" (Delivery)
 
 4. Shopping Cart: 
 
