@@ -19,7 +19,7 @@ describe('Product Categories Page', () => {
         cy.wait(1000);
         cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve#kimchi');
         
-        ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Čia lužta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Čia lūžta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
         cy.get('.pk-nav-link')
             .contains('PARDUOTUVĖ')

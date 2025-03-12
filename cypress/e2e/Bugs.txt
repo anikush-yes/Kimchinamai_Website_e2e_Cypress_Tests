@@ -9,7 +9,7 @@ Bug Steps:
 
 Open the homepage.
 Click on the Prekių paieška (Search) icon.
-Enter a non-existent product name (e.g., "NonExistentProduct123").
+Enter a non-existent product name (e.g., "Duona").
 Expected behavior: The system should show a "No results found" message.
 Actual behavior: No error message is shown, and no indication appears that the product was not found.
 Expected Result: The system should display a clear message such as "No results found" when searching for a product that doesn't exist.
