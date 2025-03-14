@@ -7,7 +7,7 @@ test.describe('Verifies that the navigation menu functions correctly by ensuring
     await page.goto('https://kimchinamai.lt/');
 
     // PAGRINDINIS (Main page link)
-    await page.locator('.pk-nav-link', { hasText: 'PAGRINDINIS' }).click({ force: true });
+    await page.locator('.pk-nav-link', { hasText: 'PAGRINDINIS' }).first().click({ force: true });
     await expect(page).toHaveURL('https://kimchinamai.lt/');
 
     // PARDUOTUVĖ (Store page link)
