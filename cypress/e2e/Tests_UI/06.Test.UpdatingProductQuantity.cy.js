@@ -29,9 +29,9 @@ describe('Test Scenario 6: Updating Product Quantity', () => {
         cy.wait(1000);
 
         // 6.6
-        cy.get('ul.cart-items li.cart-item') // Pasirinkite pirmą prekę
+        cy.get('ul.cart-items li.cart-item')
             .first()
-            .find('.product-price strong') // Pasirinkite kainą
+            .find('.product-price strong') 
             .contains('20,40 €');
 
     });

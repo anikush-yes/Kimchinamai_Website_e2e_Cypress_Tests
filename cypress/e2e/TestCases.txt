@@ -174,15 +174,18 @@ ________________________________________________________________________________
 7. Blog (Tinklaraštis)
 
 Test Scenario 12: Viewing a Blog Post
-!!! Bug detected as Tinklaraštis page is equal Homepage, not performing the test
+!!! Bug detected as Tinklaraštis page is equal Homepage.
 Steps:
 
-12.1 Open Tinklaraštis.
-12.2 Click on a blog post.
-12.3 Verify that the post content appears correctly.
+12.1 Open Homepage, checking url
+12.2 Open Tinklaraštis, checking url
+12.3 Verifyi that the URL doesn't change after navigating from thoe Home page to cothe Blog (Tinklaraštis) page, the page is the same, the URL remains the same.
 
 • Expected Result: The selected blog post loads with the correct content.
+• Actual Result:
 
+The "Tinklaraštis" page loads the same content as the homepage, showing no blog-specific content, url also remains the same.
+This description should give enough context to investigate and fix the issue!
 ________________________________________________________________________________________________________________________________
 
 

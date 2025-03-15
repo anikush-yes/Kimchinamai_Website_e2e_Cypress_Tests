@@ -27,12 +27,12 @@ describe('Test Scenario 5: Removing a Product from the Cart', () => {
         //5.5
         cy.get('.remove-from-cart')
             .each(($el) => {
-                cy.wrap($el).click({ force: true }); // Kiekvieną mygtuką paspaudžiame
-                cy.wait(500);  // Palaukiame, kad veiksmas būtų atliktas
+                cy.wrap($el).click({ force: true }); 
+                cy.wait(500);  
             });
 
         // 5.6
-        cy.contains('Jūsų krepšelyje nėra prekių')  // Tikriname, ar tekstas rodomas
+        cy.contains('Jūsų krepšelyje nėra prekių')  
             .should('be.visible');
     });
 });
