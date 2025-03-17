@@ -29,8 +29,6 @@ describe('Verifies that the navigation menu functions correctly by ensuring each
 
         // KONTAKTAI (Contacts page link) - using `cy.get()` for `.pk-nav-link`
         cy.get('.elementor-element-2fbda9c.elementor-sticky--active > :nth-child(1) > :nth-child(1) > .elementor-element-326c126 > :nth-child(1) > :nth-child(1) > .elementor-element-00ee875 > :nth-child(1) > .pk-ce-widget-wrapper > .pk-ce-widget > .pk-nav > .pk-nav-ul > :nth-child(4) > .flex-container > .pk-nav-link').click({ force: true });
-
-        // Verifying the contact page URL
         cy.url().should('eq', 'https://kimchinamai.lt/susisiekite-su-mumis');
         cy.contains('SUSISIEKITE SU MUMIS').should('be.visible');
 

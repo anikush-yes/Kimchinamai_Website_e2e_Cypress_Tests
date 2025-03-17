@@ -2,30 +2,38 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Shopping Cart', () => {
 
-  test('Should add a product to the cart and verify it', async ({ page }) => {
+  test.setTimeout(90000); // Padidina timeout iki 90 sekundžių
 
-    // 4.1-4.2 Navigate to the product page
+  test('Verify product details and shopping cart functionality', async ({ page }) => {
     await page.goto('https://kimchinamai.lt/');
+    await page.waitForLoadState('domcontentloaded');
+
+    await page.getByRole('menuitem', { name: 'PARDUOTUVĖ' }).first().click();
+    await page.waitForLoadState('networkidle');
+
+    await page.getByRole('article')
+      .filter({ hasText: '10,20 € Tradicinis kimchi su' })
+      .getByRole('button')
+      .click();
+
+    await page.getByRole('link', { name: 'KREPŠELIS' }).click();
+    await page.waitForLoadState('networkidle');
+
+    const productLink = page.locator('#main')
+      .getByRole('link', { name: /Tradicinis kimchi/ });
+
+    await productLink.waitFor({ state: 'visible', timeout: 60000 });
+    await productLink.click();
+
+    await page.waitForLoadState('networkidle');
+
+    const price = await page.locator('.ce-product-price > span').first().textContent();
+
+    // Naudojame `toBe` arba `toMatch`
+    const priceText = price?.replace(/\s/g, ''); // Pašalina visus tarpelius
+expect(priceText).toBe('10,20€');
     
-    // Click on the 'PARDUOTUVĖ' link
-    const parduotuveLink = page.locator('.pk-nav-link:has-text("PARDUOTUVĖ")');
-    await parduotuveLink.click();
-    await expect(page).toHaveURL('https://kimchinamai.lt/10-parduotuve');
-
-    // 4.3 Click 'Į krepšelį' (Add to Cart) on a product
-    const addToCartButtons = page.locator('a[href="#ce-action=addToCart"]');
-    await addToCartButtons.first().click(); // Clicking the first product's Add to Cart button
-    await page.waitForTimeout(500); // Wait for the product to be added
-
-    // 4.4 Open the Cart (Krepšelis)
-    const cartButton = page.locator('.elementor-button--view-cart').first();
-    await cartButton.click();
-    await page.waitForTimeout(500);
-
-    // 4.5 Verify that the selected product appears in the cart
-    const cartItems = page.locator('ul.cart-items li.cart-item');
-    const itemCount = await cartItems.count(); // Get the number of items in the cart
-    expect(itemCount).toBeGreaterThan(0); // Ensure there's at least one item in the cart
+    // Patikriname prekės aprašymą
+    await expect(page.getByText('Tradicinis - tikra kimchi')).toBeVisible();
   });
-
 });
