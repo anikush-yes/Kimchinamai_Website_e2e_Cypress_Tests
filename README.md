@@ -7,7 +7,7 @@
 
 ## 📋 Overview
 
-This repository contains comprehensive end-to-end (E2E) tests for the Kimchinamai restaurant website using Cypress, a powerful modern testing framework for web applications. These tests validate various aspects of the website including page navigation, menu interactions, shopping cart functionality, and checkout processes, ensuring a seamless user experience.
+This repository contains comprehensive end-to-end **(E2E)** tests for the Kimchinamai online shop website https://kimchinamai.lt/ using **Cypress**, a powerful modern testing framework for web applications. These tests validate various aspects of the website including page navigation, menu interactions, shopping cart functionality, and checkout processes, ensuring a seamless user experience.
 
 ## 🛠️ Technologies Used
 
@@ -308,7 +308,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Contact
 
-Project Maintainer: [anikush-yes](https://github.com/anikush-yes)
+Project Maintainer: anikush@hotmail.com
 
 ---
 
