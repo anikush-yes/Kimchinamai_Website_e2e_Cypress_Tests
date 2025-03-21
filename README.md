@@ -124,7 +124,7 @@ export default new HomePage();
 Cypress custom commands are used to extend the Cypress API with commonly used operations:
 
 ```javascript
-// cCypress.Commands.add('launchBrowser', () => {
+// Cypress.Commands.add('launchBrowser', () => {
 
     Cypress.on('uncaught:exception', (err, runnable) => {
         console.log('Ignoring uncaught exception:', err.message);
