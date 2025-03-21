@@ -124,105 +124,100 @@ export default new HomePage();
 Cypress custom commands are used to extend the Cypress API with commonly used operations:
 
 ```javascript
-// cypress/support/commands.js
-Cypress.Commands.add('login', (username, password) => {
-  cy.visit('/login');
-  cy.get('#username').type(username);
-  cy.get('#password').type(password);
-  cy.get('button[type="submit"]').click();
-});
+// cCypress.Commands.add('launchBrowser', () => {
 
-Cypress.Commands.add('addItemToCart', (itemName) => {
-  cy.visit('/menu');
-  cy.contains(itemName).click();
-  cy.get('[data-test="add-to-cart-button"]').click();
-});
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        console.log('Ignoring uncaught exception:', err.message);
+        return false;
+    });
 
-Cypress.Commands.add('getCartItemCount', () => {
-  return cy.get('.cart-count').invoke('text');
+    cy.visit('https://kimchinamai.lt/', {
+        onBeforeLoad(win) {
+            win.XMLHttpRequest = null;
+        }
+    });
+    cy.url().should('eq', 'https://kimchinamai.lt/');    
 });
 ```
 
 ## 📝 Test Examples
 
-### Home Page Navigation Test
+### Navigation menu Test
 
 ```javascript
-// cypress/e2e/home.spec.js
-import HomePage from '../support/pages/HomePage';
+/// <reference types="cypress" />
 
-describe('Home Page Tests', () => {
-  beforeEach(() => {
-    HomePage.visit();
-  });
+describe('Verifies that the navigation menu functions correctly by ensuring each menu item redirects to the appropriate page', () => {
 
-  it('should display restaurant name correctly', () => {
-    HomePage.getRestaurantName().should('be.visible');
-  });
+    it('Redirects the user without errors to the correct page: Pagrindinis, Parduotuvė, Tinklaraštis, Kontaktai, and the content of the page should be displayed properly.', () => {
 
-  it('should navigate to menu page when menu button is clicked', () => {
-    HomePage.navigateToMenu();
-    cy.url().should('include', '/menu');
-  });
+        //1.1
 
-  it('should display contact information', () => {
-    HomePage.getContactInfo()
-      .should('contain', '123-456-7890')
-      .and('contain', '123 Korean Food St, Food City');
-  });
+        cy.launchBrowser();
+
+        //1.2-1.3
+
+        // PAGRINDINIS (Main page link)
+        cy.get('.pk-nav-link').contains('PAGRINDINIS').click({ force: true });
+        cy.url().should('eq', 'https://kimchinamai.lt/');
+
+        // PARDUOTUVĖ (Store page link)
+        cy.get('.pk-nav-link').contains('PARDUOTUVĖ').click({ force: true });
+        cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve');
+
+        // TINKLARAŠTIS (Blog page link)
+        cy.get('.pk-nav-link').contains('TINKLARAŠTIS').click({ force: true });
+        cy.contains('h1', 'AR ŽINOJOTE?').should('exist').and('be.visible');
+
+        // Clearing cookies, localStorage, and reloading the page
+        cy.clearCookies();
+        cy.clearLocalStorage();
+        cy.reload();
+
+        // KONTAKTAI (Contacts page link) - using `cy.get()` for `.pk-nav-link`
+        cy.get('.elementor-element-2fbda9c.elementor-sticky--active > :nth-child(1) > :nth-child(1) > .elementor-element-326c126 > :nth-child(1) > :nth-child(1) > .elementor-element-00ee875 > :nth-child(1) > .pk-ce-widget-wrapper > .pk-ce-widget > .pk-nav > .pk-nav-ul > :nth-child(4) > .flex-container > .pk-nav-link').click({ force: true });
+        cy.url().should('eq', 'https://kimchinamai.lt/susisiekite-su-mumis');
+        cy.contains('SUSISIEKITE SU MUMIS').should('be.visible');
+    });
 });
 ```
 
-### Shopping Cart Test
+### Adding to the Spopping Cart Test
 
 ```javascript
-// cypress/e2e/cart.spec.js
-import MenuPage from '../support/pages/MenuPage';
-import CartPage from '../support/pages/CartPage';
+/// <reference types="cypress" />
 
-describe('Shopping Cart Tests', () => {
-  it('should add item to cart and update cart count', () => {
-    // Visit menu page
-    MenuPage.visit();
-    
-    // Add Bibimbap to cart
-    MenuPage.addItemToCart('Bibimbap');
-    
-    // Verify cart count is updated to 1
-    cy.getCartItemCount().should('eq', '1');
-  });
-  
-  it('should update item quantity in cart', () => {
-    // Add Bulgogi to cart using custom command
-    cy.addItemToCart('Bulgogi');
-    
-    // Visit cart page
-    CartPage.visit();
-    
-    // Update quantity to 3
-    CartPage.updateItemQuantity('Bulgogi', 3);
-    
-    // Verify quantity was updated
-    CartPage.getItemQuantity('Bulgogi').should('eq', '3');
-    
-    // Verify subtotal was updated correctly
-    CartPage.getSubtotal().should('match', /\$\d+\.\d{2}/);
-  });
-  
-  it('should remove item from cart', () => {
-    // Add item to cart and navigate to cart page
-    cy.addItemToCart('Kimchi');
-    CartPage.visit();
-    
-    // Initial cart should have 1 item
-    CartPage.getItemCount().should('eq', 1);
-    
-    // Remove item
-    CartPage.removeItem('Kimchi');
-    
-    // Cart should be empty
-    CartPage.getEmptyCartMessage().should('be.visible')
-      .and('contain', 'Your cart is empty');
+describe('Shopping Cart', () => {
+
+  it('Should add a product to the cart and verify it', () => {
+
+    //4.1-4.2
+
+    cy.launchBrowser();
+
+    cy.get('.pk-nav-link').contains('PARDUOTUVĖ').click({ force: true });
+    cy.url().should('eq', 'https://kimchinamai.lt/10-parduotuve');
+
+    //4.3 Click Į krepšelį on a product.
+
+    cy.get('a[href="#ce-action=addToCart"]')
+      .should('be.visible')
+      .each(($el, index, $list) => {
+        cy.wrap($el).click({ force: true });
+        cy.wait(500);
+      });
+
+    ///4.4 Open the Krepšelis (Cart)
+
+    cy.get('.elementor-button--view-cart').eq(0).click({ force: true });
+    cy.wait(500);
+
+    ///4.5 Verify that the selected product appears in the cart.
+
+    cy.get('ul.cart-items')
+      .find('li.cart-item')
+      .should('have.length.greaterThan', 0);
+
   });
 });
 ```
@@ -234,46 +229,38 @@ The repository integrates with GitHub Actions for continuous integration. Tests 
 GitHub workflow configuration:
 
 ```yaml
-name: Cypress Tests
+name: Cypress tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  cypress-run:
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm start
-          wait-on: 'http://localhost:3000'
-      
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-      
-      - name: Upload videos
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npx cypress run
 ```
 
 ## 📊 Test Reporting
 
-Cypress automatically generates screenshots on test failures and videos of test runs. These artifacts are uploaded to GitHub Actions for easy debugging.
+Cypress automatically generates screenshots failures of test runs. These artifacts are uploaded to GitHub Actions for easy debugging.
 
 For more comprehensive reporting, the project can be configured to use the Cypress Dashboard service:
 
